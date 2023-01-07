@@ -17,40 +17,49 @@ function App() {
   };
 
   const handleAddMessages = (message) => {
-    setMessages([
+    const newMessages = [
       ...messages,
       { user: currentUser.name, date: new Date(), text: message },
-    ]);
-    localStorage.setItem('messages', JSON.stringify(messages));
+    ];
+    setMessages(newMessages);
+    localStorage.setItem('messages', JSON.stringify(newMessages));
+  };
+
+  const loadMsgFromLocal = () => {
+    const msg = JSON.parse(localStorage.getItem('messages'));
+    if (msg != null) {
+      setMessages(msg);
+    }
+  };
+
+  const refreshMsg = () => {
+    loadMsgFromLocal();
+    setTimeout(refreshMsg, 1000);
   };
 
   useEffect(() => {
-    const msg = JSON.parse(localStorage.getItem('messages'));
-    if (msg != null) {
-      console.log(msg);
-      setMessages(msg);
-    }
+    refreshMsg();
   }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className='page'>
+      <div className="page">
         <Routes>
           <Route
-            element={<ProtectedRoute isLoggedIn={!isLoggedIn} navigateTo='/' />}
+            element={<ProtectedRoute isLoggedIn={!isLoggedIn} navigateTo="/" />}
           >
             <Route
-              path='/signin'
+              path="/signin"
               element={<Login handleLogin={handleLogin} />}
             />
           </Route>
           <Route
             element={
-              <ProtectedRoute isLoggedIn={isLoggedIn} navigateTo='/signin' />
+              <ProtectedRoute isLoggedIn={isLoggedIn} navigateTo="/signin" />
             }
           >
             <Route
-              path='/'
+              path="/"
               element={
                 <Main
                   handleAddMessages={handleAddMessages}

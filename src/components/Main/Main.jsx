@@ -24,21 +24,23 @@ const Main = ({ handleAddMessages, messages }) => {
   });
 
   return (
-    <div className='chat'>
-      <div className='chat__menu'>
+    <div className="chat">
+      <div className="chat__menu">
         <p>Hello, {name}</p>
         <Link>Exit from chat</Link>
       </div>
-      <div className='chat__list'>{messageList}</div>
-      <form className='chat__form' onSubmit={addMessage}>
+      <div className='chat__wrapper'>
+        <div className="chat__list">{messageList}</div>
+      </div>
+      <form className="chat__form" onSubmit={addMessage}>
         <input
-          className='chat__input'
+          className="chat__input"
           value={message}
-          placeholder='Write a message...'
+          placeholder="Write a message..."
           onChange={onChange}
           required
         ></input>
-        <button className='chat__button'>Send</button>
+        <button className="chat__button">Send</button>
       </form>
     </div>
   );

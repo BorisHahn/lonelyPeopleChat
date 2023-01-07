@@ -37,22 +37,26 @@
   box-sizing: border-box;
   border: 2px solid rgba(218, 217, 217, 0.699);
 }
+.chat__wrapper {
+  display: block;
+  padding: 5px;
+  margin: 0;
+  margin-bottom: 20px;
+  height: 400px;
+  width: 90%;
+  overflow-y: scroll;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid rgba(218, 217, 217, 0.699);
+  box-sizing: border-box;
+}
 
 .chat__list {
   margin: 0;
-  margin-bottom: 20px;
-  padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  background: white;
-  border-radius: 5px;
-  height: 400px;
-  width: 90%;
-  border: 2px solid rgba(218, 217, 217, 0.699);
-  box-sizing: border-box;
-  overflow-y: scroll;
 }
 
 .chat__button {
