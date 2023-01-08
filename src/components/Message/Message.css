@@ -1,5 +1,5 @@
 .message {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +13,10 @@
   background: rgba(23, 65, 148, 0.507);
   border-radius: 5px;
   color: rgb(255, 255, 255);
+}
+
+.message_another {
+  background: rgba(14, 38, 87, 0.829);
 }
 
 .message__user,

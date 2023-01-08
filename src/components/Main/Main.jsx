@@ -4,7 +4,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Message from '../Message/Message';
 import './Main.css';
 
-const Main = ({ handleAddMessages, messages }) => {
+const Main = ({ handleAddMessages, messages, handleLogout }) => {
   const [message, setMessage] = useState('');
   const currentUser = React.useContext(CurrentUserContext);
   const { name } = currentUser;
@@ -19,6 +19,11 @@ const Main = ({ handleAddMessages, messages }) => {
     setMessage(e.target.value);
   };
 
+  const logout = (e) => {
+    e.preventDefault();
+    handleLogout();
+  }
+
   const messageList = messages.map((item, index) => {
     return <Message key={index} item={item} />;
   });
@@ -27,7 +32,7 @@ const Main = ({ handleAddMessages, messages }) => {
     <div className="chat">
       <div className="chat__menu">
         <p>Hello, {name}</p>
-        <Link>Exit from chat</Link>
+        <button onClick={logout}>Exit from chat</button>
       </div>
       <div className='chat__wrapper'>
         <div className="chat__list">{messageList}</div>

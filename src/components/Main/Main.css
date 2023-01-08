@@ -38,13 +38,14 @@
   border: 2px solid rgba(218, 217, 217, 0.699);
 }
 .chat__wrapper {
-  display: block;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
   padding: 5px;
   margin: 0;
   margin-bottom: 20px;
   height: 400px;
   width: 90%;
-  overflow-y: scroll;
   background: white;
   border-radius: 5px;
   border: 2px solid rgba(218, 217, 217, 0.699);
@@ -52,11 +53,12 @@
 }
 
 .chat__list {
+  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
+  height: 100%;
 }
 
 .chat__button {

@@ -16,6 +16,11 @@ function App() {
     setCurrentUser({ name: data });
   };
 
+  const handleLogout = () => {
+    setIsloggedIn(false);
+    setCurrentUser({});
+  }
+
   const handleAddMessages = (message) => {
     const newMessages = [
       ...messages,
@@ -64,6 +69,7 @@ function App() {
                 <Main
                   handleAddMessages={handleAddMessages}
                   messages={messages}
+                  handleLogout={handleLogout}
                 />
               }
             />
